@@ -41,6 +41,9 @@ Example `config.yaml`:
 ```yaml
 openai_api_key: your_openai_api_key_here
 model: gpt-4o
+custom_prompt: "My custom prompt: %s"
 ```
 
 Replace `your_openai_api_key_here` with your actual OpenAI API key.
+
+The `custom_prompt` is optional. If you provide a custom prompt, it will be used to generate the commit message. The `%s` in the prompt will be replaced with the git diff.

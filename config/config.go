@@ -3,9 +3,11 @@ package config
 import "sync/atomic"
 
 type Config struct {
-	OpenAIKey   string  `mapstructure:"openai_api_key"`
-	Model       string  `mapstructure:"model"`
-	Temperature float32 `mapstructure:"temperature"`
+	OpenAIKey    string  `mapstructure:"openai_api_key"`
+	Model        string  `mapstructure:"model"`
+	Temperature  float32 `mapstructure:"temperature"`
+	CustomPrompt string  `mapstructure:"custom_prompt"`
+	BasePrompt   string  `mapstructure:"base_prompt"`
 }
 
 // configValue holds the current configuration atomically.
@@ -25,5 +27,3 @@ func Get() *Config {
 
 	return v.(*Config)
 }
-
-

@@ -9,17 +9,23 @@ import (
 )
 
 type OpenAIClient struct {
-	apiKey string
-	model  string
+	apiKey       string
+	model        string
+	customPrompt string
+	basePrompt   string
 }
 
 func NewOpenAIClient(
 	apiKey string,
 	model string,
+	customPrompt string,
+	basePrompt string,
 ) *OpenAIClient {
 	return &OpenAIClient{
-		apiKey: apiKey,
-		model:  model,
+		apiKey:       apiKey,
+		model:        model,
+		customPrompt: customPrompt,
+		basePrompt:   basePrompt,
 	}
 }
 
@@ -28,15 +34,16 @@ var _ Client = (*OpenAIClient)(nil)
 func (c *OpenAIClient) GenerateCommitMessage(diff string) (string, error) {
 	url := "https://api.openai.com/v1/chat/completions"
 
-	prompt := fmt.Sprintf(
-		"Generate a concise, high-quality git commit message for this diff:\n\n%s",
-		diff,
-	)
+	prompt := c.basePrompt
+	if prompt == "" {
+		prompt = "Generate a concise, high-quality git commit message for this diff:\n\n%s"
+	}
+	prompt = prompt + "\n\n" + c.customPrompt
 
 	req := map[string]any{
 		"model": c.model,
 		"messages": []map[string]string{
-			{"role": "user", "content": prompt},
+			{"role": "user", "content": fmt.Sprintf(prompt, diff)},
 		},
 	}
 
