@@ -41,6 +41,9 @@ Example `config.yaml`:
 ```yaml
 openai_api_key: your_openai_api_key_here
 model: gpt-4o
+custom_prompt: "My custom prompt: %s"
 ```
 
 Replace `your_openai_api_key_here` with your actual OpenAI API key.
+
+The `custom_prompt` option is optional. If provided, it will be appended to the `base_prompt` (which is used as the main instruction for generating the commit message). The `%s` placeholder replacement only applies to the `base_prompt`, not the `custom_prompt`. You can also customize the `base_prompt` if needed. Both prompts together provide instructions to the LLM for generating the commit message.

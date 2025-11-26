@@ -20,7 +20,7 @@ and generates a suitable commit message using an AI language model.`,
 		cfg := config.Get()
 
 		g := generator.New(llm.NewOpenAIClient(
-			cfg.OpenAIKey, cfg.Model,
+			cfg.OpenAIKey, cfg.Model, cfg.CustomPrompt, cfg.BasePrompt,
 		))
 		msg, err := g.Generate()
 		if err != nil {

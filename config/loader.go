@@ -16,7 +16,7 @@ func Load(configFile string) (*Config, error) {
 		v.SetConfigFile(configFile)
 	} else {
 		home, _ := os.UserHomeDir()
-		v.AddConfigPath(filepath.Join(home, ".config", "aicommit"))
+		v.AddConfigPath(filepath.Join(home, ".config", "smart-commit"))
 
 		v.AddConfigPath(home)
 
