@@ -46,4 +46,4 @@ custom_prompt: "My custom prompt: %s"
 
 Replace `your_openai_api_key_here` with your actual OpenAI API key.
 
-The `custom_prompt` is optional. If you provide a custom prompt, it will be used to generate the commit message. The `%s` in the prompt will be replaced with the git diff.
+The `custom_prompt` option is optional. If provided, it will be appended to the `base_prompt` (which is used as the main instruction for generating the commit message). The `%s` placeholder replacement only applies to the `base_prompt`, not the `custom_prompt`. You can also customize the `base_prompt` if needed. Both prompts together provide instructions to the LLM for generating the commit message.
