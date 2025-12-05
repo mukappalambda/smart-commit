@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+
 	"smart-commit/config"
 	"smart-commit/pkg/generator"
 	"smart-commit/pkg/llm"

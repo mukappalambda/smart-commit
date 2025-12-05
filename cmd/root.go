@@ -3,14 +3,13 @@ package cmd
 import (
 	"fmt"
 	"os"
+
 	"smart-commit/config"
 
 	"github.com/spf13/cobra"
 )
 
-var (
-	configFile string
-)
+var configFile string
 
 var rootCmd = &cobra.Command{
 	Use:   "smart-commit",
