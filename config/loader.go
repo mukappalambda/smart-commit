@@ -27,7 +27,7 @@ func Load(configFile string) (*Config, error) {
 	v.SetEnvPrefix("AICOMMIT")
 	v.AutomaticEnv()
 
-	v.SetDefault("model", "gpt-4o-mini")
+	v.SetDefault("model", v.GetString("model"))
 	v.SetDefault("temperature", 0.3)
 
 	err := autoBindEnv(v, Config{})
