@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+
 	"smart-commit/pkg/git"
 	"smart-commit/pkg/llm"
 )
