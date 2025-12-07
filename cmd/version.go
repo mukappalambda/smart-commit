@@ -19,11 +19,11 @@ var (
 	GitCommit  = "unknown"
 	GitVersion = "unknown"
 	BuildDate  = "unknown"
-	RepoUrl    = "unknown"
+	RepoURL    = "unknown"
 )
 
 func Version(_ string) error {
-	fmt.Printf("%s%s\n\n", name, RepoUrl)
+	fmt.Printf("%s%s\n\n", name, RepoURL)
 
 	type KV struct {
 		K string
